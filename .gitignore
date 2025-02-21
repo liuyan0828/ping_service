@@ -1,0 +1,20 @@
+#idea setting file#
+.idea/
+*.iml
+environment.yml
+
+#pycache
+__pycache__/
+**/__pycache__/
+
+#mac OS
+.DS_Store
+**/.DS_Store
+.DS_Store?
+
+#virtualenv
+.venv
+env/
+
+#ad_pingback_file
+compare_file/
