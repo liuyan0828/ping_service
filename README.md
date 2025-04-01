@@ -1,7 +1,115 @@
-pingback_service
-Differences Between Mini Program/App Rules and PC/WAP Rules
-The data fields used in both versions differ, but this does not affect the overall result comparison.
-In Mini Program/App, the ev field's d code is always a number, allowing continuity checks and more accurate sorting. In PC/WAP, d may be a string, preventing continuity validation and following string-based sorting rules.
-In Mini Program/App, a test session without PV (Page View) and EV (Exposure View) is considered a severe exception, and no summary results will be generated. In PC/WAP, only the absence of PV is treated as a severe exception.
-In Mini Program/App, the creation of basic rules is not allowed if spmcnt is empty, whereas in PC/WAP, empty spmcnt values are permitted.
-In Mini Program/App, the recommendation strategy is fixed, and specific value comparisons are performed. In PC/WAP, if scm starts with "1," the presence of scm is compared rather than the exact values; otherwise, values must match exactly.
+# Ping Service
+
+## 📄 Project Overview
+
+**Ping Service** is a lightweight Python-based network monitoring tool designed to perform continuous or scheduled **Ping requests** to specific hosts or IP addresses. It helps monitor the availability, latency, and stability of network endpoints and can be used for server health checks, connectivity monitoring, and real-time alerting.
+
+## 🚀 Features
+
+- Perform ICMP Ping requests to target servers or IPs.
+- Record ping latency and packet loss statistics.
+- Support configurable target list and retry settings.
+- Provide real-time command-line output.
+- Support log output for historical review.
+- Easy integration with automated monitoring pipelines.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Description |
+|:-:|:-|
+| **Python** | Programming Language |
+| **Asyncio** | Asynchronous Ping Execution |
+| **Subprocess / OS utilities** | For performing ICMP ping requests |
+| **Logging** | Logging results to file |
+
+---
+
+## 📥 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/liuyan0828/ping_service.git
+cd ping_service
+```
+
+2. Create Python environment (optional but recommended):
+
+```bash
+python -m venv venv
+source venv/bin/activate  # For Linux/Mac
+venv\Scripts\activate    # For Windows
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🚦 How to Use
+
+### Run Default Ping
+
+```bash
+python main.py
+```
+
+### Customize Target and Count
+
+```bash
+python main.py --targets google.com,8.8.8.8 --count 5
+```
+
+### Output to log file
+
+```bash
+python main.py --log ping_results.log
+```
+
+### Available Options
+
+| Argument      | Description                      |
+|-------------|----------------------------------|
+| `--targets`  | Comma-separated list of targets (default: 8.8.8.8) |
+| `--count`    | Number of ping attempts per target (default: 4) |
+| `--log`      | Output log file path (optional)  |
+
+---
+
+## 📄 Project Structure
+
+```
+ping_service/
+├── main.py                  # Entry script
+├── utils/                   # Helper functions
+│   └── ping.py              # Ping logic
+├── logs/                    # Log output directory
+├── requirements.txt         # Dependencies
+└── README.md                # Project Description
+```
+
+---
+
+## ✅ Usage Scenarios
+
+- Server / Website uptime monitoring
+- Network health checks
+- Daily scheduled ping tests
+- Integration into CI/CD health monitoring pipelines
+
+---
+
+## 🔥 Future Plans
+
+- Add email/Slack alert integration for downtime
+- Add dashboard for real-time ping visualization
+- Add batch scheduling support
+
+---
+
+Feel free to fork, contribute, or raise issues to improve this project.
